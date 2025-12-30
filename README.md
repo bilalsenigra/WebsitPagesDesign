@@ -1,3 +1,3 @@
 # WebsitPagesDesign
 Here I share any pages that I design.
-Take a look, maybe someone will inspire you or impress you.
+Take a look, perhaps one of them will inspire you or you will like it.
