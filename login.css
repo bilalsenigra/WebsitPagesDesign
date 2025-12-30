@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0, 0, 0);
+}
+
+.main-container {
+    width: 85%;
+    height: 90%;
+    border: 1px solid rgb(3, 1, 7);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(244, 131, 2, 0.2);
+}
+
+.bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.gradient-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgb(21, 20, 20) 20%, rgba(66, 66, 66, 0.61));
+    z-index: 2;
+    transition: opacity 1s ease;
+}
+
+.main-container:hover .gradient-layer {
+    opacity: 0.3;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 3;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+    height: 70px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: rgb(244, 131, 2);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.85em;
+    padding: 6px 12px;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-list li a:hover,
+.nav-list li a.active {
+    color: rgb(244, 131, 2);
+    background: rgba(244, 131, 2, 0.1);
+}
+
+.forms-wrapper {
+    flex: 1;
+    position: relative;
+    z-index: 3;
+    padding: 25px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    position: absolute;
+    width: 85%;
+    max-width: 380px;
+    height: auto;
+    min-height: 450px;
+    max-height: 80vh;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.forms-wrapper.show-login .login-form {
+    transform: translateX(0);
+}
+
+.forms-wrapper.show-login .signup-form {
+    transform: translateX(180%);
+    opacity: 0;
+}
+
+.forms-wrapper.show-signup .login-form {
+    transform: translateX(-180%);
+    opacity: 0;
+}
+
+.forms-wrapper.show-signup .signup-form {
+    transform: translateX(0);
+}
+
+.form-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.form-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.form-content::-webkit-scrollbar-thumb {
+    background: rgba(244, 131, 2, 0.5);
+    border-radius: 8px;
+}
+
+.form-content h2 {
+    color: white;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.form-content p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+p.forgot {
+    margin-top: 8px;
+    margin-bottom: 15px;
+    font-size: 0.8em;
+    text-align: left;
+}
+
+.form-content a {
+    color: rgb(244, 131, 2);
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.form-content a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+input {
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+    color: white;
+    width: 100%;
+    transition: all 0.3s;
+    height: 42px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(to right, rgb(244, 131, 2), rgb(200, 100, 0));
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.3s;
+    height: 42px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgb(244, 131, 2);
+    box-shadow: 0 0 12px rgba(244, 131, 2, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+button:hover {
+    background: linear-gradient(to right, rgb(255, 150, 30), rgb(220, 120, 10));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(244, 131, 2, 0.4);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 12px 0;
+}
+
+.line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.or {
+    padding: 0 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.otherWays {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.otherWays a {
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    transition: all 0.3s;
+}
+
+.otherWays a i {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.otherWays a:hover {
+    border-color: rgb(244, 131, 2);
+    box-shadow: 0 0 12px rgba(244, 131, 2, 0.3);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.otherWays a:hover i {
+    color: rgb(244, 131, 2);
+}
