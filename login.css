@@ -117,7 +117,7 @@ body {
     width: 85%;
     max-width: 380px;
     height: auto;
-    min-height: 450px;
+    min-height: 400px;
     max-height: 80vh;
     transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     opacity: 0;
@@ -154,7 +154,7 @@ body {
 
 .form-content {
     background: rgba(255, 255, 255, 0.1);
-    padding: 25px;
+    padding: 20px;
     border-radius: 12px;
     backdrop-filter: blur(15px);
     text-align: center;
@@ -182,14 +182,13 @@ body {
 .form-content h2 {
     color: white;
     font-size: 1.3em;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
 }
 
 .form-content p {
     color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 8px;
     font-size: 0.9em;
 }
 
